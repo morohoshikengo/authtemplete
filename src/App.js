@@ -12,7 +12,6 @@ function App({ signOut}) {
   const [username, setUserName] = useState('');
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
-  const [phone, setPhone] = useState('');
   const [message, setMessage] = useState('');
   const onSignOut = (e) => {
     // フォーム送信を抑止
@@ -128,8 +127,7 @@ function App({ signOut}) {
           username,
           password,
           attributes: {
-              email,          // optional
-              phone,   // optional - E.164 number convention
+              email         // optional   // optional - E.164 number convention
               // other custom attributes 
           },
           autoSignIn: { // optional - enables auto sign in after user is confirmed
@@ -151,7 +149,6 @@ function App({ signOut}) {
         UserName:<input type="text" onChange={(e) => setUserName(e.target.value)}/><br/>
         Password:<input type="password" onChange={(e) => setPassword(e.target.value)} /><br/>
         Email:<input type="email" onChange={(e) => setEmail(e.target.value)} /><br/>
-        phone:<input type="phone" onChange={(e) => setPhone(e.target.value)} /><br/>
         <button onClick={(e) => onSignIn(e)}>Sign In</button>
         <button onClick={(e) => resetForm(e)}>Reset</button>
         <button onClick={(e) => onSignOut(e)}>Sign Out</button>
